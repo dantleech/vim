@@ -1,3 +1,28 @@
+" getset templates
+let s:phpgetset_getterTemplate = 
+    \ "\n" .
+    \ "/**\n" .
+    \ " * Get %varname%.\n" .
+    \ " *\n" .
+    \ " * @return %varname%.\n" .
+    \ " */\n" .
+    \ "public function %funcname%()\n" .
+    \ "{\n" .
+    \ "    return $this->%varname%;\n" .
+    \ "}"
+
+let s:phpgetset_setterTemplate = 
+  \ "\n" .
+  \ "/**\n" .
+  \ " * Set %varname%.\n" .
+  \ " *\n" .
+  \ " * @param %varname% the value to set.\n" . 
+  \ " */\n" .
+  \ "public function %funcname%($%varname%)\n" .
+  \ "{\n" .
+  \ "    $this->%varname% = $%varname%;\n" .
+  \ "}"
+
 " Pathogen !
 let g:pathogen_disabled = []
 
@@ -37,6 +62,9 @@ let php_sql_query = 1
 let php_htmlInStrings = 1
 let php_sync_method = 0
 
+let g:DisableAutoPHPFolding = 1
+let php_folding=0
+
 " show TWIG highlighting
 au BufRead,BufNewFile *.twig set syntax=htmljinja
 
@@ -65,6 +93,9 @@ endif
 
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files = 20000
+let g:ctrlp_max_depth = 80
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 " mappings
 map <F7> :NERDTreeFind <CR> " Eclimd toggle project tree
@@ -75,5 +106,4 @@ imap <C-B> <ESC>:CtrlPBuffer
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR> 
-
 map <F1> : echo "You've pressed the wrong key, right?"<CR>  
