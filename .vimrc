@@ -59,11 +59,10 @@ set hlsearch
 syntax on
 let c_space_errors = 1
 let php_sql_query = 1
-let php_htmlInStrings = 1
 let php_sync_method = 0
-
-let g:DisableAutoPHPFolding = 1
 let php_folding=0
+let g:DisableAutoPHPFolding = 1
+syntax sync fromstart
 
 " show TWIG highlighting
 au BufRead,BufNewFile *.twig set syntax=htmljinja

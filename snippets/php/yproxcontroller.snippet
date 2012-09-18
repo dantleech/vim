@@ -1,0 +1,22 @@
+<?php
+
+namespace Ylly\Extension\${1:YourBundle}\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Ylly\CmsBundle\Controller\AdminBaseController;
+use Ylly\Extension\$1\Entity\${2:EntityName};
+
+class $2Controller extends AdminBaseController
+{
+	protected function get$2Repo()
+	{
+		return $this->getEm()->getRepo('Ylly\Extension\$1\Entity\$2');
+	}
+
+	public function indexAction()
+	{
+		return $this->render('$1:Site:index.html.twig', array(
+		));
+	}
+}
+
