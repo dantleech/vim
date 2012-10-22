@@ -1,0 +1,12 @@
+<?php
+
+namespace ${1:Vendor}\${2:Module}\Exception;
+
+class ${3:Name} extends \Exception
+{
+	public function __construct($message)
+	{
+		$message = sprintf('%s', $message);
+		return __parent($message);
+	}
+}

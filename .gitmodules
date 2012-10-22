@@ -58,6 +58,9 @@
 [submodule "bundle/vim-php-namespace"]
 	path = bundle/vim-php-namespace
 	url = git://github.com/arnaud-lb/vim-php-namespace.git
-[submodule "bundle/symfony-vim"]
-	path = bundle/symfony-vim
-	url = git://github.com/vim-scripts/symfony.vim.git
+[submodule "bundle/vim-symfony"]
+	path = bundle/vim-symfony
+	url = git://github.com/docteurklein/vim-symfony.git
+[submodule "bundle/autotag"]
+	path = bundle/autotag
+	url = git://github.com/marcus/autotag.vim.git
