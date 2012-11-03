@@ -64,3 +64,6 @@
 [submodule "bundle/autotag"]
 	path = bundle/autotag
 	url = git://github.com/marcus/autotag.vim.git
+[submodule "bundle/vim-localrc"]
+	path = bundle/vim-localrc
+	url = git://github.com/thinca/vim-localrc.git
