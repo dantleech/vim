@@ -1,45 +1,18 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/squil-vim-colors"]
-	path = bundle/squil-vim-colors
-	url = https://github.com/squil/vim_colors.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule "bundle/neocomplcache"]
-	path = bundle/neocomplcache
-	url = https://github.com/Shougo/neocomplcache.git
-[submodule "bundle/vim-redmine"]
-	path = bundle/vim-redmine
-	url = https://github.com/toritori0318/vim-redmine.git
-[submodule "bundle/webapi-vim"]
-	path = bundle/webapi-vim
-	url = https://github.com/mattn/webapi-vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/PIV"]
-	path = bundle/PIV
-	url = https://github.com/spf13/PIV.git
-[submodule "bundle/FuzzyFinder"]
-	path = bundle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "bundle/l9"]
 	path = bundle/l9
 	url = https://github.com/vim-scripts/L9.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/php_getset"]
-	path = bundle/php_getset
-	url = https://github.com/vim-scripts/php_getset.vim.git
 [submodule "bundle/buffers_search_and_replace"]
 	path = bundle/buffers_search_and_replace
 	url = https://github.com/vim-scripts/buffers_search_and_replace.git
@@ -61,9 +34,12 @@
 [submodule "bundle/vim-symfony"]
 	path = bundle/vim-symfony
 	url = git://github.com/docteurklein/vim-symfony.git
-[submodule "bundle/autotag"]
-	path = bundle/autotag
-	url = git://github.com/marcus/autotag.vim.git
 [submodule "bundle/vim-localrc"]
 	path = bundle/vim-localrc
 	url = git://github.com/thinca/vim-localrc.git
+[submodule "bundle/vim-autotag"]
+	path = bundle/vim-autotag
+	url = git://github.com/vim-scripts/AutoTag.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
