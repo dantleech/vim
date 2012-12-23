@@ -1,0 +1,9 @@
+snippet unitmockbuilder
+	$${1:mock} = $this->getMockBuilder('${2:FQN}')
+	  ->disableOriginalConstructor()
+	  ->getMock();
+
+snippet unitexpects
+	$this->${1:mock}->expects($this->${2:once}())
+	  ->method('${3:method}')
+	  ->will($this->returnValue(${4:value}));

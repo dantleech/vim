@@ -1,0 +1,18 @@
+{% extends "YllyBackOfficeBundle:Template:siteConfigPage.html.twig" %}
+
+{% block title_left %}{% trans from 'snb' %}${1:Title}{% endtrans %}{% endblock %}
+{% block title_right %}
+    {{ formLink.return(path('snb_newsletters', {'site_id': site_manager.site.id })) }} |
+    {{ formLink.delete(path('snb_newsletter_delete', {'newsletter_id': newsletter.id, 'site_id': site_manager.site.id})) }}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block actions %}
+{% endblock %}
+
+{%block page_content %}
+{% endblock %}
+
+
