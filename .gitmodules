@@ -37,3 +37,6 @@
 [submodule "bundle/neosnippet"]
 	path = bundle.available/neosnippet
 	url = git://github.com/Shougo/neosnippet.git
+[submodule "bundle.available/vim-autocomplpop"]
+	path = bundle.available/vim-autocomplpop
+	url = git://github.com/cometsong/vim-autocomplpop.git
