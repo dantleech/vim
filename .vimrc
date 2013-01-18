@@ -42,7 +42,7 @@ set nospell
 set pastetoggle=<F12> 
 
 " Eclim
-"
+
 map <F7> :ProjectTreeToggle <CR> 
 map <F9> :TagbarToggle <CR> 
 map <C-B> :LocateBuffer <CR>
@@ -56,3 +56,17 @@ let g:EclimProjectTreeActions = [
     \ {'pattern': '.*', 'name': 'Split', 'action': 'split'},
   \ ]
 let g:EclimProjectKeepLocalHistory = 1
+
+let g:acp_behaviorPhpEclimLength = 2
+function MeetsForPhpEclim(context)
+  return g:acp_behaviorPhpEclimLength >= 0 &&
+        \ a:context =~ '\k\{' . g:acp_behaviorPhpEclimLength . ',}$'
+
+endfunction
+let g:acp_behavior = {
+    \ 'php': [{
+      \ 'command': "\<c-x>\<c-u>",
+      \ 'completefunc' : 'eclim#php#complete#CodeComplete',
+      \ 'meets'        : 'MeetsForPhpEclim',
+    \ }]
+  \ }
