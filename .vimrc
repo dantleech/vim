@@ -38,7 +38,7 @@ let g:DisableAutoPHPFolding = 1
 
 scriptencoding utf-8
 set history=1000
-set spell
+set nospell
 set pastetoggle=<F12> 
 
 " Eclim
