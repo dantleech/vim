@@ -5,18 +5,22 @@ filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 let g:vundle_default_git_proto = 'git'
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/""
 
 call vundle#rc()
 
 Bundle 'L9'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
+"Bundle 'Shougo/neosnippet'
+Bundle 'MarcWeber/ultisnips'
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
+Bundle 'evidens/vim-twig'
 Bundle 'majutsushi/tagbar'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
@@ -77,6 +81,9 @@ endif
 " Ignore files
 set wildignore+=*/.git/*,*.cache,*.cache.php,*.swp,*.swo,**/cache/**
 
+" Allow hidden buffers
+set hidden
+
 " CtrlP 
 let g:ctrlp_max_files = 20000
 let g:ctrlp_max_depth = 80
@@ -86,8 +93,8 @@ let g:ctrlp_working_path_mode = ''
 " neocachecomplconfig
 let g:neocomplcache_enable_at_startup=1
 
-" Tell Neosnippet about the other snippets
-" let g:neosnippet#snippets_directory='~/.vim/snippets'
+" Ultisnip
+let g:snips_author="Daniel Leech <daniel@dantleech.com>"
 
 " Only get tags from CWD
 set tags=tags;
@@ -104,8 +111,6 @@ map <C-T> :CtrlPTag <CR>
 map <C-F> :CtrlP <CR>
 map <Leader>cu :!ctags --verbose <CR>
 map <Leader>t :TagbarToggle<CR>
+map <Leader>vr :so ~/.vimrc<CR>
+map <Leader>ve :tabnew ~/.vim/.vimrc<CR>
 map <F1> : echo "You've pressed the wrong key, right?"<CR>  
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
