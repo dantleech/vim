@@ -108,7 +108,7 @@ map <Leader>u :call PhpInsertUse()<CR>
 map <Leader>e :call PhpExpandClass()<CR>
 map <C-B> :CtrlPBuffer <CR>
 map <C-T> :CtrlPTag <CR>
-map <C-F> :CtrlP <CR>
+map <C-P> :CtrlP <CR>
 map <Leader>cu :!ctags --verbose <CR>
 map <Leader>t :TagbarToggle<CR>
 map <Leader>vr :so ~/.vimrc<CR>

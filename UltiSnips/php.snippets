@@ -263,3 +263,64 @@ class ${1:`!v expand("%:t:r")`}
 }
 endsnippet
 
+snippet phpcr_document "PHPCR Document" !b
+<?php
+
+namespace ${1:`!v substitute(substitute(expand("%:h"), '\v^\w+\/(\u)', '\1', ''), '\/', '\\', 'g')`};
+
+use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
+
+/**
+ * $1
+ *
+ * @PHPCR\Document()
+ */
+class ${1:`!v expand("%:t:r")`}
+{
+    /** 
+     * @PHPCR\Id()
+     */
+    protected $id;
+
+    /** 
+     * @PHPCR\NodeName()
+     */
+    protected $name;
+
+    /** 
+     * @PHPCR\ParentDocument()
+     */
+    protected $parent;
+
+    /**
+     * @PHPCR\Children()
+     */
+    protected $children;
+
+    public function getId()
+    {
+        return $id;
+    }
+
+    public function getName() 
+    {
+        return $this->name;
+    }
+    
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    
+    public function getParent() 
+    {
+        return $this->parent;
+    }
+    
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+}
+endsnippet
+
