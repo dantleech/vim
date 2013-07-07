@@ -1,5 +1,3 @@
-let mapleader=","
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -9,33 +7,77 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/""
 
 call vundle#rc()
 
-Bundle 'L9'
-Bundle 'Lokaltog/vim-easymotion'
+" =============================== "
+" ======== Vundle Config ======== "
+
+" Disabled but interesting ...
 "Bundle 'Shougo/neocomplcache'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/unite.vim'
 "Bundle 'tsukkee/unite-tag'
+"Bundle 'tpope/vim-surround'
+
+" Utility bundles
+Bundle 'L9'
 Bundle 'vim-scripts/tlib'
 Bundle 'Shougo/vimproc.vim'
+
+" Easy motion - <Leader>ww = forward, <Leader>bb = backwards
+Bundle 'Lokaltog/vim-easymotion'
+
+" Best snippets plugin
 Bundle 'MarcWeber/ultisnips'
+
+" Package manager
 Bundle 'gmarik/vundle'
+
+" Ctrlp - quickly find files, tags and buffers using fuzzy search
 Bundle 'kien/ctrlp.vim'
+
+" Twig syntax highlighting
 Bundle 'evidens/vim-twig'
+
+" Tag bar shows methods and variables of current class (uses ctags)
 Bundle 'majutsushi/tagbar'
+
+" Better javascript support
 Bundle 'pangloss/vim-javascript'
+
+" Nerdtree file browser
 Bundle 'scrooloose/nerdtree'
+
+" Easily comment - <Leader>cc
 Bundle 'scrooloose/nerdcommenter'
+
+" Syntax checking on write
 Bundle 'scrooloose/syntastic'
-Bundle 'sumpygump/php-documentor-vim'
+
+" Powerful PHP completion (uses ctags)
 Bundle 'shawncplus/phpcomplete.vim'
+
+" Allows text replacement regardless of CaSe
 Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-surround'
+
+" GiT integration: Gblame, Gread (reset to git state), Gstatus
 Bundle 'tpope/vim-fugitive'
+
+" Automatically insert use statements and expand class names to FQN
 Bundle 'arnaud-lb/vim-php-namespace'
+
+" Align anything
 Bundle 'junegunn/vim-easy-align'
+
+" Get GITHub activity
 Bundle 'junegunn/vim-github-dashboard'
+
+" PHP Documentation - hit K (shift-k) on any php function
 Bundle 'mudpile45/vim-phpdoc'
-"Bundle 'spf13/vim-autoclose'
+
+" Apply a command on every file in the quickfix list :Qdo %s/Foobar/Barfoo
+Bundle 'henrik/vim-qargs'
+
+" =============================== "
+" =========== Config ============ "
 
 " show TWIG highlighting
 au BufRead,BufNewFile *.twig set syntax=htmljinja
@@ -49,6 +91,9 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set smarttab
+
+" Automatically write file for some commands, like cfile
+set autowrite
 
 " show lines numbers
 set number
@@ -110,36 +155,56 @@ let g:snips_author="Daniel Leech <daniel@dantleech.com>"
 set tags=tags;
 set tags+=/usr/share/php/PHPUnit/tags
 let g:phpcomplete_parse_docblock_comments = 1
+let g:phpcomplete_complete_for_unknown_classes = 0
 
 " Settings for rst / markdown
 autocmd FileType rst setlocal textwidth=78
 autocmd Filetype markdown setlocal textwidth=78
 
-" Mappings
+" =============================== "
+" ========== Mappings =========== "
 
+" Use "," as the <Leader> key
+let mapleader=","
+
+" Toggle NERDTree file browser
 map <Leader>n :NERDTreeToggle <CR>
+
+" Open current file in NERDTree
 map <Leader>f :NERDTreeFind <CR> 
+
+" Tagbar shows list of all methods and variables in class
 map <Leader>t :TagbarToggle <CR> 
+
+" Automatically add a use statement for class under cursor (uses ctags)
 map <Leader>u :call PhpInsertUse()<CR>
+
+" Expand the class under the cursor (uses ctags)
 map <Leader>e :call PhpExpandClass()<CR>
 
+" Fuzzy search open buffers
 map <C-B> :CtrlPBuffer <CR>
+" Fuzzy search tags
 map <C-T> :CtrlPTag <CR>
+" Fuzzy search all project filenames
 map <C-P> :CtrlP <CR>
 
 " map <C-p> :Unite file_rec/async<cr>
 " map <C-b> :Unite buffer <cr>
 " map <C-t> :Unite tag <cr>
-map <Leader>g :Unite grep:.<cr>
+" map <Leader>g :Unite grep:.<cr>
+
+" Update ctags
 map <Leader>cu :!ctags --verbose <CR>
-map <Leader>t :TagbarToggle<CR>
+
+" Reload the .vimrc config
 map <Leader>vr :so ~/.vimrc<CR>
+
+" Edit .vimrc
 map <Leader>ve :tabnew ~/.vim/.vimrc<CR>
-map <F1> : echo "You've pressed the wrong key, right?"<CR>  
-au BufRead,BufNewFile *.php inoremap <Leader>db :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php nnoremap <Leader>db :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <Leader>db :call PhpDocRange()<CR>
 
-au BufRead,BufNewFile *.xml map <Leader>xe :!xmlcopyeditor %<CR>
+" Next quick fix item
+map <Leader>= :cnext<CR>
 
-
+" Previous quick fix item
+map <Leader>- :cprev<CR>
