@@ -1,3 +1,43 @@
+global !p
+
+def namespace(snip, path):
+    import os
+    namespace = pathToNamespace(path)
+    if (len(namespace) == 0):
+        return ''
+    return os.linesep + snip.mkline('namespace ' + namespace + ';') + os.linesep
+
+def pathToNamespace(path):
+    import re
+    path = path.replace('\\', '/')
+
+    parts = []
+    for part in path.split('/'):
+        if re.match('^[A-Z]', part):
+            parts.append(part)
+        else:
+            parts = []
+    parts.pop()
+
+    return '\\'.join(parts)
+
+endglobal
+
+snippet inheritdoc "Inherit docblock" !
+/**
+ * {@inheritDoc}
+ */
+endsnippet
+
+snippet class "Class file" !
+<?php
+`!p snip.rv = namespace(snip, path)`
+class `!p snip.rv = snip.basename`
+{
+    ${0}
+}
+endsnippet
+
 ## Snippets from SnipMate, taken from
 ## https://github.com/scrooloose/snipmate-snippets.git
 
