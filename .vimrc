@@ -162,7 +162,7 @@ autocmd FileType rst setlocal textwidth=78
 autocmd Filetype markdown setlocal textwidth=78
 
 " =============================== "
-" ========== Mappings =========== "
+" ===== Keyboard Mappings ======= "
 
 " Use "," as the <Leader> key
 let mapleader=","
@@ -195,7 +195,7 @@ map <C-P> :CtrlP <CR>
 " map <Leader>g :Unite grep:.<cr>
 
 " Update ctags
-map <Leader>cu :!ctags --verbose <CR>
+map <Leader>cp :!ctags --verbose <CR>
 
 " Reload the .vimrc config
 map <Leader>vr :so ~/.vimrc<CR>
