@@ -4,6 +4,9 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 let g:vundle_default_git_proto = 'git'
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/""
+"let g:UltiSnipsExpandTrigger = '<s-tab>'
+"let g:UltiSnipsListSnippets = '<F6>'
+let g:syntastic_php_checkers=['php', 'phpmd']
 
 call vundle#rc()
 
@@ -76,6 +79,12 @@ Bundle 'mudpile45/vim-phpdoc'
 " Apply a command on every file in the quickfix list :Qdo %s/Foobar/Barfoo
 Bundle 'henrik/vim-qargs'
 
+" Correct indentation .. maybe
+Bundle '2072/PHP-Indenting-for-VIm.git'
+
+" Behat plugin
+Bundle 'veloce/vim-behat.git'
+
 " =============================== "
 " =========== Config ============ "
 
@@ -132,6 +141,8 @@ if has('statusline')
     set statusline+=\ [%{getcwd()}] " current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
 endif
+
+hi StatusLine ctermbg=grey ctermfg=black
 
 " Ignore files
 set wildignore+=*/.git/*,*.cache,*.cache.php,*.swp,*.swo,**/cache/**
@@ -208,3 +219,13 @@ map <Leader>= :cnext<CR>
 
 " Previous quick fix item
 map <Leader>- :cprev<CR>
+
+" Show EOLs
+map <Leader>w :set list!<CR>
+
+" Move up and down by lines of 10
+map J 10j
+map K 10k
+
+" Remap the K (contextual help) command to F5
+map <F5> K

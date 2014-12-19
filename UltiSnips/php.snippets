@@ -275,7 +275,23 @@ endsnippet
 # DANS SNIPPETS
 
 snippet prd "Dump and die"
-var_dump($1);die();$0;
+var_dump($1);die();$0
+endsnippet
+
+snippet dd "Traceable Dump and Die"
+echo "<pre>".__METHOD__."(".__LINE__.")"; var_dump($1); die('</pre>');$0
+endsnippet
+
+snippet tt "Trace Debug"
+xdebug_print_function_stack($1);$0
+endsnippet
+
+snippet ttd "Trace Debug and Die"
+xdebug_print_function_stack("$1");die();$0
+endsnippet
+
+snippet pel "Debug Message Error Log"
+error_log("Message: ".$1." ".__METHOD__."(".__LINE__.")\n"." from ".xdebug_call_class()."::".xdebug_call_function()."(".xdebug_call_line().")");$0
 endsnippet
 
 snippet doc_c "Class Document"
